@@ -5,9 +5,16 @@
         "source": "github",
         "repo": "ayghri/i-have-adhd"
       }
+    },
+    "hallmark": {
+      "source": {
+        "source": "github",
+        "repo": "nutlope/hallmark"
+      }
     }
   },
   "enabledPlugins": {
-    "i-have-adhd@i-have-adhd": true
+    "i-have-adhd@i-have-adhd": true,
+    "hallmark@hallmark": true
   }
 }
