@@ -1,0 +1,119 @@
+{
+ "gerado_em": "2026-11-14T08:36-03:00",
+ "exercicio": 2026,
+ "licenca": {
+  "nome": "Creative Commons BY-SA 4.0",
+  "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR"
+ },
+ "automaticas": [
+  {
+   "id": "tdf-receita",
+   "sigla": "Portal da Transparência do DF",
+   "nome": "Receita do Distrito Federal — exercício 2026",
+   "coleta": "Linhas de receita prevista e realizada, por órgão, natureza e mês.",
+   "uso": "Mostra de onde vem o dinheiro do DF: impostos, transferências e demais receitas.",
+   "unidade": "linhas de receita",
+   "url_arquivo": "https://www.transparencia.df.gov.br/arquivos/portal-dados-abertos/Receita_2026.zip",
+   "url_portal": "https://www.transparencia.df.gov.br/#/receita",
+   "url_dicionario": "http://dados.df.gov.br/dataset/c92c427a-9f63-4f53-a0dd-ba5d309f0455/resource/13f7c230-8e8c-419d-8675-6bb8e8c9f46d/download/dicionario-de-dados-abertosreceita.pdf",
+   "estado": {
+    "situacao": "verificada",
+    "detalhe": null,
+    "etag": "\"eb5212b9be12ef9c526c3d87029cefdb\"",
+    "arquivo_atualizado_em": "2026-10-29T14:04-03:00",
+    "ultima_tentativa": "2026-11-14T08:36-03:00",
+    "ultima_coleta": "2026-11-14T08:36-03:00",
+    "registros": 9201,
+    "contagem": {
+     "2026-10": 399,
+     "2026-09": 1008,
+     "2026-01": 1114,
+     "2026-02": 844,
+     "2026-03": 1020,
+     "2026-07": 1076,
+     "2026-08": 1024,
+     "2026-05": 946,
+     "2026-06": 860,
+     "2026-04": 910
+    },
+    "cobertura": [
+     "2026-01",
+     "2026-10"
+    ]
+   }
+  },
+  {
+   "id": "tdf-pagamentos",
+   "sigla": "Portal da Transparência do DF",
+   "nome": "Pagamentos do Distrito Federal — exercício 2026",
+   "coleta": "Ordens bancárias emitidas: data, órgão pagador, credor, processo e valor.",
+   "uso": "Mostra para quem o governo do DF pagou, quanto e quando.",
+   "unidade": "ordens bancárias",
+   "url_arquivo": "https://www.transparencia.df.gov.br/arquivos/portal-dados-abertos/Despesa_2026.zip",
+   "url_portal": "https://www.transparencia.df.gov.br/#/despesas",
+   "url_dicionario": "http://dados.df.gov.br/dataset/8dce6486-3295-47c3-b463-8a2aaef0ef0b/resource/61a4a81d-73e4-4665-bd85-d6453a98fe47/download/dicionario-de-dados-abertosdespesa.pdf",
+   "estado": {
+    "situacao": "verificada",
+    "detalhe": null,
+    "etag": "\"7a35b08ce88236ed920d02d8ab10714b\"",
+    "arquivo_atualizado_em": "2026-10-29T14:06-03:00",
+    "ultima_tentativa": "2026-11-14T08:36-03:00",
+    "ultima_coleta": "2026-11-14T08:36-03:00",
+    "registros": 181494,
+    "contagem": {
+     "2026-09": 20737,
+     "2026-05": 20411,
+     "2026-07": 23508,
+     "2026-02": 13594,
+     "2026-01": 4511,
+     "2026-10": 18833,
+     "2026-03": 21384,
+     "2026-04": 18423,
+     "2026-06": 20569,
+     "2026-08": 19524
+    },
+    "cobertura": [
+     "2026-01",
+     "2026-10"
+    ]
+   }
+  }
+ ],
+ "manuais": [
+  {
+   "id": "dados-df",
+   "sigla": "Dados Abertos DF",
+   "nome": "Portal de Dados Abertos do Distrito Federal",
+   "uso": "Catálogo geral de bases do governo do DF (terceirizados, imóveis alugados, renúncias fiscais).",
+   "url_portal": "https://dados.df.gov.br/"
+  },
+  {
+   "id": "tcdf",
+   "sigla": "TCDF",
+   "nome": "Tribunal de Contas do Distrito Federal",
+   "uso": "Fiscalização externa das contas do governo e da Câmara Legislativa.",
+   "url_portal": "https://www2.tc.df.gov.br/transparenciafiscal/"
+  },
+  {
+   "id": "cldf",
+   "sigla": "CLDF",
+   "nome": "Câmara Legislativa do Distrito Federal",
+   "uso": "Deputados distritais, comissões e proposições.",
+   "url_portal": "https://www.cl.df.gov.br/"
+  },
+  {
+   "id": "tse",
+   "sigla": "TSE",
+   "nome": "Tribunal Superior Eleitoral — DivulgaCandContas",
+   "uso": "Candidaturas, votação e prestação de contas eleitorais no DF.",
+   "url_portal": "https://divulgacandcontas.tse.jus.br/"
+  },
+  {
+   "id": "ibge",
+   "sigla": "IBGE",
+   "nome": "Instituto Brasileiro de Geografia e Estatística",
+   "uso": "População e território oficiais do DF, usados para calcular valores por habitante.",
+   "url_portal": "https://cidades.ibge.gov.br/brasil/df/panorama"
+  }
+ ]
+}

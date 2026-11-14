@@ -1,0 +1,157 @@
+@font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-display: swap; src: url("fontes-tipograficas/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 500; font-display: swap; src: url("fontes-tipograficas/ibm-plex-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-display: swap; src: url("fontes-tipograficas/ibm-plex-sans-latin-600-normal.woff2") format("woff2"); }
+
+:root {
+  --papel: #eff2f0;
+  --folha: #ffffff;
+  --tinta: #17211d;
+  --tinta-2: #47534d;
+  --linha: #cfd6d2;
+  --linha-forte: #17211d;
+  --acento: #0a5a48;
+  --acento-fundo: #dcece5;
+  --ok: #0a5f47;      --ok-fundo: #e0f0e8;
+  --espera: #744800;  --espera-fundo: #f7ebcf;
+  --falha: #9c2418;   --falha-fundo: #f9e2dd;
+  --raio: 4px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--papel); color: var(--tinta);
+  font: 400 1rem/1.55 "IBM Plex Sans", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  caret-color: var(--acento);
+}
+::selection { background: var(--acento); color: var(--folha); }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; border-radius: 2px; }
+a { color: var(--acento); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+
+.largura { max-width: 68rem; margin-inline: auto; padding-inline: 1.25rem; }
+.pular { position: absolute; left: -999rem; }
+.pular:focus { left: 1rem; top: 1rem; z-index: 2; background: var(--folha); padding: 0.5rem 0.75rem; }
+
+.topo { border-bottom: 1px solid var(--linha-forte); }
+.topo__linha { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 0.9rem; }
+.marca { margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+.topo nav a { color: var(--tinta); text-decoration: none; font-weight: 500; border-bottom: 2px solid var(--acento); padding-bottom: 0.2rem; }
+
+h1, h2, h3 { text-wrap: balance; letter-spacing: -0.015em; line-height: 1.15; margin: 0; }
+h1 { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.025em; }
+h2 { font-size: 1.5rem; font-weight: 600; }
+h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.3; }
+
+.abertura { padding-block: 3.5rem 1rem; }
+.abertura__texto { max-width: 62ch; font-size: 1.125rem; margin: 1rem 0 0; }
+.abertura__estado { margin: 1.5rem 0 0; color: var(--tinta-2); }
+.abertura__estado strong { color: var(--tinta); font-weight: 500; }
+
+main > section + section { margin-top: 4rem; }
+.secao__texto { max-width: 68ch; margin: 0.6rem 0 0; color: var(--tinta-2); }
+
+/* Fontes com coleta automática */
+.fontes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.75rem; border-top: 1px solid var(--linha-forte); }
+.fonte { padding: 1.5rem 2rem 1.75rem 0; }
+.fonte + .fonte { padding-left: 2rem; padding-right: 0; border-left: 1px solid var(--linha); }
+.fonte__orgao { margin: 0 0 0.35rem; color: var(--tinta-2); font-size: 0.875rem; }
+.fonte__cabeca { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.fonte__texto { margin: 0.75rem 0 0; max-width: 46ch; }
+.fonte__texto + .fonte__texto { margin-top: 0.35rem; color: var(--tinta-2); }
+.fatos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; margin: 1.5rem 0 0; }
+.fatos dt { font-size: 0.8125rem; color: var(--tinta-2); }
+.fatos dd { margin: 0.1rem 0 0; font-weight: 500; }
+.fatos .destaque dd { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+.fatos .destaque small { display: block; font-size: 0.875rem; font-weight: 400; letter-spacing: 0; color: var(--tinta-2); }
+.fonte__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.erro-fonte { margin: 0.75rem 0 0; color: var(--falha); }
+
+/* Selos de situação: sempre ícone + texto, nunca só cor */
+.selo { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.15rem 0.55rem 0.15rem 0.4rem; border-radius: var(--raio); font-size: 0.8125rem; font-weight: 500; white-space: nowrap; }
+.selo svg { width: 0.9rem; height: 0.9rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.selo--ok { color: var(--ok); background: var(--ok-fundo); }
+.selo--espera { color: var(--espera); background: var(--espera-fundo); }
+.selo--falha { color: var(--falha); background: var(--falha-fundo); }
+.selo--neutro { color: var(--tinta-2); background: transparent; box-shadow: inset 0 0 0 1px var(--linha); padding-left: 0.55rem; }
+
+/* Registro */
+.legenda { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 2rem; margin: 1.5rem 0 0; }
+.legenda dd { margin: 0.4rem 0 0; font-size: 0.875rem; color: var(--tinta-2); max-width: 34ch; }
+
+.filtros { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; margin-top: 2rem; }
+.segmento { display: inline-flex; border: 1px solid var(--linha-forte); border-radius: var(--raio); overflow: hidden; }
+.segmento button { font: inherit; font-size: 0.875rem; font-weight: 500; color: var(--tinta); background: transparent; border: 0; padding: 0.45rem 0.9rem; cursor: pointer; transition: background-color 150ms ease-out, color 150ms ease-out; }
+.segmento button + button { border-left: 1px solid var(--linha-forte); }
+.segmento button:hover { background: var(--acento-fundo); }
+.segmento button[aria-pressed="true"] { background: var(--tinta); color: var(--folha); }
+.segmento button:focus-visible { outline-offset: -3px; outline-color: currentColor; }
+.marcar { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer; }
+.marcar input { width: 1rem; height: 1rem; accent-color: var(--acento); margin: 0; }
+
+.tabela-area { margin-top: 1rem; background: var(--folha); border: 1px solid var(--linha); border-top: 1px solid var(--linha-forte); }
+.registro { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.registro th { text-align: left; font-size: 0.8125rem; font-weight: 500; color: var(--tinta-2); padding: 0.7rem 1rem; border-bottom: 1px solid var(--linha); white-space: nowrap; }
+.registro td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--linha); vertical-align: top; }
+.registro tbody tr:last-child td { border-bottom: 0; }
+.registro tbody tr:hover td { background: #f4f7f5; }
+.registro .num { text-align: right; }
+.registro .mes { font-weight: 600; white-space: nowrap; }
+.registro .c-arq, .registro .c-col { white-space: nowrap; color: var(--tinta-2); }
+.registro .apoio { display: block; font-size: 0.8125rem; color: var(--tinta-2); }
+.registro tr.mudou-mes td { border-top: 1px solid var(--linha-forte); }
+.qtd { display: inline-block; min-width: 5.5ch; font-weight: 500; }
+.barra { display: block; height: 3px; margin-top: 0.4rem; margin-left: auto; background: var(--acento); border-radius: 1px; min-width: 1px; }
+.motivo { display: block; margin-top: 0.3rem; font-size: 0.8125rem; color: var(--falha); max-width: 40ch; overflow-wrap: anywhere; }
+
+.vazio { margin: 1rem 0 0; color: var(--tinta-2); }
+.link { font: inherit; color: var(--acento); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; }
+
+/* Fontes manuais */
+.manuais { list-style: none; margin: 1.75rem 0 0; padding: 0; border-top: 1px solid var(--linha-forte); }
+.manuais li { display: grid; grid-template-columns: 9rem minmax(0, 1fr) auto; gap: 0.25rem 1.5rem; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--linha); }
+.manuais .sigla { font-weight: 600; }
+.manuais .nome { margin: 0; font-weight: 500; }
+.manuais .uso { margin: 0.15rem 0 0; color: var(--tinta-2); font-size: 0.9375rem; max-width: 60ch; }
+.manuais .acoes { display: flex; align-items: center; gap: 1rem; white-space: nowrap; }
+
+.rodape { margin-top: 5rem; border-top: 1px solid var(--linha-forte); padding-block: 1.75rem 3rem; color: var(--tinta-2); font-size: 0.875rem; }
+.rodape p { margin: 0 0 0.4rem; max-width: 75ch; }
+
+.esqueleto { border-radius: var(--raio); background: linear-gradient(90deg, #e2e7e4 25%, #ecf0ee 50%, #e2e7e4 75%) 0 0 / 200% 100%; animation: brilho 1.4s linear infinite; }
+@keyframes brilho { to { background-position: -200% 0; } }
+.aviso { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--falha-fundo); color: var(--falha); border-radius: var(--raio); max-width: 68ch; }
+
+@media (max-width: 52rem) {
+  h1 { font-size: 2rem; }
+  .abertura { padding-top: 2.5rem; }
+  .fontes { grid-template-columns: 1fr; }
+  .fonte, .fonte + .fonte { padding: 1.5rem 0; border-left: 0; }
+  .fonte + .fonte { border-top: 1px solid var(--linha); }
+  .legenda { grid-template-columns: 1fr; gap: 0.9rem; }
+  .manuais li { grid-template-columns: 1fr; }
+  .manuais .acoes { margin-top: 0.4rem; }
+
+  /* A tabela vira lista: cada linha é um bloco de duas colunas */
+  .registro thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .registro, .registro tbody { display: block; }
+  .registro tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.3rem 1rem; padding: 0.9rem 1rem; border-bottom: 1px solid var(--linha); }
+  .registro tbody tr:last-child { border-bottom: 0; }
+  .registro tr.mudou-mes { border-top: 1px solid var(--linha-forte); }
+  .registro td, .registro tr.mudou-mes td { display: block; padding: 0; border: 0; }
+  .registro td.c-mes { grid-column: 1; }
+  .registro td.c-sit { grid-column: 2; grid-row: 1; justify-self: end; }
+  .registro td.c-fonte { grid-column: 1; }
+  .registro td.c-qtd { grid-column: 2; grid-row: 2; }
+  .registro td.c-arq, .registro td.c-col { grid-column: 1 / -1; white-space: normal; font-size: 0.8125rem; color: var(--tinta-2); }
+  .registro td.c-arq::before { content: "Arquivo da fonte atualizado em "; }
+  .registro td.c-col::before { content: "Coletas: "; }
+  .barra { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .esqueleto { animation: none; }
+  .segmento button { transition: none; }
+}

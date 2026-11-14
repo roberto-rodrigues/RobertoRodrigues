@@ -1,0 +1,50 @@
+name: Coleta diária e publicação
+
+on:
+  schedule:
+    - cron: "17 9 * * *"   # 06:17 em Brasília
+  push:
+    paths: ["site/**", "coletor/**", ".github/workflows/coleta-e-publicacao.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: coleta-e-publicacao
+  cancel-in-progress: false
+
+jobs:
+  coletar-e-publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Coletar
+        id: coleta
+        continue-on-error: true   # a falha também precisa entrar no registro publicado
+        run: python coletor/coletar.py
+      - name: Gravar o registro no repositório
+        run: |
+          git config user.name "coletor-fontes-df"
+          git config user.email "coletor-fontes-df@users.noreply.github.com"
+          git add site/dados
+          git diff --cached --quiet || git commit -m "Coleta de $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Publicar no GitHub Pages
+        id: publicacao
+        uses: actions/deploy-pages@v4
+      - name: Sinalizar falha da coleta
+        if: steps.coleta.outcome == 'failure'
+        run: exit 1

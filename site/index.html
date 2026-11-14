@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fontes dos dados · Observatório DF</title>
+<meta name="description" content="De onde vêm os dados do Observatório DF: fontes oficiais do Distrito Federal e o registro de cada coleta automática.">
+<link rel="preload" href="fontes-tipograficas/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="largura topo__linha">
+    <p class="marca">Observatório DF</p>
+    <nav aria-label="Seções"><a href="./" aria-current="page">Fontes</a></nav>
+  </div>
+</header>
+
+<main id="conteudo" class="largura">
+  <section class="abertura">
+    <h1>De onde vêm os dados</h1>
+    <p class="abertura__texto">Todo número deste observatório sai de um arquivo público do governo do Distrito Federal. Esta página mostra quais são esses arquivos, quando cada um foi coletado e quantos registros vieram em cada mês.</p>
+    <p class="abertura__estado" id="estado-geral" aria-live="polite">Carregando o registro de coletas…</p>
+  </section>
+
+  <section aria-labelledby="t-automaticas">
+    <h2 id="t-automaticas">Fontes com coleta automática</h2>
+    <p class="secao__texto">Um robô baixa estes arquivos todos os dias e confere se algo mudou. Você pode abrir o mesmo arquivo e conferir a contagem.</p>
+    <div class="fontes" id="fontes-automaticas"><div class="esqueleto" style="height:16rem"></div></div>
+  </section>
+
+  <section aria-labelledby="t-registro">
+    <h2 id="t-registro">Registro de sincronizações</h2>
+    <p class="secao__texto">Uma linha por mês de cada fonte. Coletas seguidas com o mesmo resultado aparecem juntas, com o período em que se repetiram.</p>
+
+    <dl class="legenda">
+      <div><dt><span class="selo selo--ok"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg>Concluída</span></dt><dd>O mês está no arquivo da fonte e os registros foram contados.</dd></div>
+      <div><dt><span class="selo selo--espera"><svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.2l2 1.3"/></svg>Ainda não publicada</span></dt><dd>A coleta funcionou, mas a fonte ainda não divulgou esse mês.</dd></div>
+      <div><dt><span class="selo selo--falha"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></svg>Falhou</span></dt><dd>O robô não conseguiu baixar ou ler o arquivo. O motivo aparece na linha.</dd></div>
+    </dl>
+
+    <div class="filtros" role="group" aria-label="Filtrar o registro">
+      <div class="segmento" id="filtro-fonte" role="group" aria-label="Fonte"></div>
+      <label class="marcar"><input type="checkbox" id="filtro-pendencias"> Só pendências</label>
+    </div>
+
+    <div class="tabela-area">
+      <table class="registro">
+        <thead><tr>
+          <th scope="col">Mês</th><th scope="col">Fonte</th><th scope="col" class="num">Registros</th>
+          <th scope="col">Situação</th><th scope="col">Fonte atualizou em</th><th scope="col">Coletas</th>
+        </tr></thead>
+        <tbody id="linhas-registro"><tr><td colspan="6"><div class="esqueleto" style="height:14rem"></div></td></tr></tbody>
+      </table>
+    </div>
+    <p class="vazio" id="registro-vazio" hidden>Nenhuma linha com esse filtro. <button type="button" class="link" id="limpar-filtros">Limpar filtros</button></p>
+  </section>
+
+  <section aria-labelledby="t-manuais">
+    <h2 id="t-manuais">Fontes ainda sem coleta automática</h2>
+    <p class="secao__texto">São fontes oficiais que o observatório pretende usar, mas que ainda não têm robô. Por isso não recebem selo de verificação: por enquanto, só o link para consulta.</p>
+    <ul class="manuais" id="fontes-manuais"></ul>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="largura">
+    <p id="licenca">Dados sob a licença indicada por cada fonte.</p>
+    <p>Este site não é um canal oficial do Governo do Distrito Federal. Em caso de divergência, vale o que está na fonte.</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
