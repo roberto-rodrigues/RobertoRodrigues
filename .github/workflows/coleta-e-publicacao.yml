@@ -37,6 +37,7 @@ jobs:
           git config user.email "coletor-fontes-df@users.noreply.github.com"
           git add site/dados
           git diff --cached --quiet || git commit -m "Coleta de $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+          git pull --rebase   # outra execução pode ter gravado antes desta
           git push
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
